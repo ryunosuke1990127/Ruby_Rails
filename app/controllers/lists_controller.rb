@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
   def new
-    # Wiewへ渡すためのインスタンス変数を以下定義
+    # Wiewへ渡すためのインスタンス変数を定義
     @list = List.new
   end
 
