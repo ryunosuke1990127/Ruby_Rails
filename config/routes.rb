@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'lists/new'
-  post 'lists'=>'lists#create' #ListURLにログインした際にデータを作成(保存する)アクションを 
-  get 'lists/index'
+  post 'lists'=>'lists#create' #ListURLにログインした際にデータを作成(保存する)アクションを
+  get 'lists'=>'lists#index'
   get 'lists/show'
   get 'lists/edit'
   get 'top' =>'homes#top'
