@@ -3,6 +3,9 @@
 <% @lists.each do |list|%>
 
 <p>タイトル</p>
-<span><%= list.title%></spam>
+<!--詳細画面へ遷移するリンクを作成-->
+<span>
+  <%= link_to list.title ,list_path(list.id) %>
+</spam>
 
 <%end%>

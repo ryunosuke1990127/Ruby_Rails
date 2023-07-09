@@ -4,12 +4,15 @@ class ListsController < ApplicationController
     @list = List.new
   end
   def create
-  # １.&2. データを受け取り新規登録するためのインスタンス作成(ローカル変数なので@はなし)
+  # 1&2. データを受け取り新規登録するためのインスタンス作成(ローカル変数なので@はなし)
   list = List.new(list_params)
   # 3. データをデータベースに保存するためのsaveメソッド実行
   list.save
-  # 4. トップ画面へリダイレクト
-  redirect_to '/top'
+  # 4. 変更後を詳細画面へ変更
+  # 変更前
+  # redirect_to '/top'
+  # 変更後
+  redirect_to list_path(list.id)
   end
 
   def index
@@ -18,6 +21,7 @@ class ListsController < ApplicationController
   end
 
   def show
+    @list = List.find(params[:id])
   end
 
   def edit
