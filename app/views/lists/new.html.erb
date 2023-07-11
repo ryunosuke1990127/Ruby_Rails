@@ -1,4 +1,14 @@
 <h1>新規投稿</h1>
+<!--バリデーションの分岐構造の作成-->
+<% if @list.errors.any? %>
+ <%= @list.errors.count %>件のエラーが発生しました
+ <ul>
+   <% @list.errors.full_messages.each do |message| %>
+   <li><%= message%></li>
+   <% end %>
+ </ul>
+<%end%>
+
 <!--form_withの使用-->
 <!--Listmodel部分の使用-->
 <%= form_with model:@list,url: '/lists',method: :post do |f| %>

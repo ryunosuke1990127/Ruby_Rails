@@ -3,16 +3,17 @@ class ListsController < ApplicationController
     # Wiewへ渡すためのインスタンス変数を定義
     @list = List.new
   end
+
   def create
-  # 1&2. データを受け取り新規登録するためのインスタンス作成(ローカル変数なので@はなし)
-  list = List.new(list_params)
-  # 3. データをデータベースに保存するためのsaveメソッド実行
-  list.save
-  # 4. 変更後を詳細画面へ変更
-  # 変更前
-  # redirect_to '/top'
-  # 変更後
-  redirect_to list_path(list.id)
+  @list = List.new(list_params)
+    if @list.save
+      
+      # フラッシュメッセージの定義
+      flash[:notice]="投稿が成功しました"
+      redirect_to list_path(@list.id)
+    else
+      render :new
+    end
   end
 
   def index
